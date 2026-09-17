@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عالم الأطفال - 50 لعبة ممتعة وتعليمية</title>
+    <style>
+        body {
+            font-family: 'Cairo', Tahoma, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background: #ffcc00;
+            color: #333;
+            padding: 20px;
+            border-bottom: 5px solid #ff9900;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 30px;
+        }
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            width: 250px;
+            padding: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 3px solid #ff66b2;
+        }
+        .category-card:hover {
+            transform: scale(1.05);
+            background-color: #fff0f5;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+        }
+        .close-btn {
+            background: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .levels-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            max-height: 250px;
+            overflow-y: auto;
+            margin-top: 15px;
+            padding: 10px;
+        }
+        .level-box {
+            background: #4CAF50;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .level-box:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🌟 عالم ألعاب الأطفال الذكية 🌟</h1>
+        <p>زراعة، طبخ، سيارات، حروف، و70 مرحلة ممتعة مع ترقيات النجوم!</p>
+    </header>
+
+    <main class="container">
+        <div class="category-card" onclick="openGame('المزرعة السعيدة (طماطم، خيار، خيول)')">
+            🌾 <h3>المزرعة السعيدة</h3>
+            <p>زراعة الخضار والفواكه وإطعام الخيول</p>
+        </div>
+
+        <div class="category-card" onclick="openGame('المكياج والطبخ وتصميم البيوت')">
+            💄 <h3>المكياج والطبخ والديكور</h3>
+            <p>تمكيج، استحمام، طبخ، وبناء البيوت</p>
+        </div>
+
+        <div class="category-card" onclick="openGame('ميكانيكي السيارات وسباق السرعة')">
+            🚗 <h3>الميكانيكي والسباقات</h3>
+            <p>إصلاح السيارات وسباق السيارات المثير</p>
+        </div>
+
+        <div class="category-card" onclick="openGame('الحروف والكلمات المتقاطعة')">
+            🔤 <h3>الحروف والكلمات</h3>
+            <p>قراءة بلغات متعددة وكلمات متقاطعة</p>
+        </div>
+    </main>
+
+    <!-- نافذة عرض الـ 70 مرحلة -->
+    <div id="gameModal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle">عنوان اللعبة</h2>
+            <p>اختر مرحلة (من 1 إلى 70 مرحلة واكسب النجوم ⭐):</p>
+            <div class="levels-grid" id="levelsContainer"></div>
+            <button class="close-btn" onclick="closeModal()">إغلاق</button>
+        </div>
+    </div>
+
+    <script>
+        function openGame(gameName) {
+            document.getElementById('modalTitle').innerText = gameName;
+            const container = document.getElementById('levelsContainer');
+            container.innerHTML = '';
+            
+            // توليد 70 مرحلة تلقائياً مع نظام النجوم
+            for (let i = 1; i <= 70; i++) {
+                const box = document.createElement('div');
+                box.className = 'level-box';
+                box.innerHTML = `مرحلة ${i} ⭐`;
+                box.onclick = function() {
+                    alert(`أهلاً بك في ${gameName} - المرحلة ${i}! ابدأ اللعب واكسب نجومك.`);
+                };
+                container.appendChild(box);
+            }
+            
+            document.getElementById('gameModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('gameModal').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
