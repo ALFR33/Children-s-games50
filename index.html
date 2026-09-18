@@ -5,215 +5,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>عالم ألعاب الأطفال الذكي 2026</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
         body {
             font-family: 'Cairo', Tahoma, sans-serif;
-            background: linear-gradient(135deg, #f0f8ff, #ffe4e1);
+            background: #f0f8ff;
             margin: 0;
             padding: 0;
             text-align: center;
-            min-height: 100vh;
         }
         header {
             background: #ffcc00;
             color: #222;
             padding: 20px;
-            border-bottom: 6px solid #ff9900;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2rem;
-            color: #d35400;
-        }
-        header p {
-            margin: 8px 0 0;
-            font-size: 1rem;
-            font-weight: bold;
-            color: #333;
+            border-bottom: 5px solid #ff9900;
         }
         .container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
-            padding: 30px 15px;
-            max-width: 1100px;
-            margin: 0 auto;
+            padding: 25px;
         }
         .category-card {
             background: white;
             border-radius: 15px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-            width: 250px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            width: 260px;
             padding: 20px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            border: 4px solid #ff66b2;
-            text-align: center;
+            border: 3px solid #ff66b2;
+            transition: 0.3s;
         }
         .category-card:hover {
-            transform: translateY(-5px);
+            transform: scale(1.05);
             background-color: #fff0f5;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         }
-        .category-card h3 {
-            color: #2c3e50;
-            margin: 10px 0 5px;
-        }
-        .category-card p {
-            color: #7f8c8d;
-            font-size: 0.85rem;
-            line-height: 1.3;
-            margin: 0;
-        }
-        /* نافذة المراحل التفاعلية */
         .modal {
             display: none;
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.6);
+            background: rgba(0,0,0,0.85);
             justify-content: center;
             align-items: center;
             z-index: 1000;
         }
         .modal-content {
             background: white;
-            padding: 25px;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 550px;
-            text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            border: 4px solid #3498db;
+            padding: 10px;
+            border-radius: 15px;
+            width: 95%;
+            max-width: 900px;
+            height: 88vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        iframe {
+            width: 100%;
+            flex-grow: 1;
+            border: none;
+            border-radius: 10px;
+            background: #fff;
         }
         .close-btn {
             background: #e74c3c;
             color: white;
             border: none;
-            padding: 10px 25px;
-            border-radius: 50px;
+            padding: 10px 30px;
+            border-radius: 5px;
             cursor: pointer;
-            margin-top: 15px;
+            margin-top: 10px;
             font-weight: bold;
-            font-size: 0.9rem;
-        }
-        .close-btn:hover {
-            background: #c0392b;
-        }
-        .levels-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 8px;
-            max-height: 250px;
-            overflow-y: auto;
-            margin-top: 15px;
-            padding: 10px;
-            background: #f9f9f9;
-            border-radius: 10px;
-            border: 2px solid #ddd;
-        }
-        .level-box {
-            background: #2ecc71;
-            color: white;
-            padding: 10px 2px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 0.85rem;
-            transition: transform 0.2s, background 0.2s;
-        }
-        .level-box:hover {
-            background: #27ae60;
-            transform: scale(1.05);
-        }
-        footer {
-            margin-top: 30px;
-            padding: 12px;
-            background: #333;
-            color: white;
-            font-size: 0.85rem;
+            font-size: 1rem;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>🌟 عالم ألعاب الأطفال الذكي (2026) 🌟</h1>
-        <p>مزرعة، طبخ، مكياج، سيارات، حروف، و70 مرحلة ممتعة مع ترقيات النجوم!</p>
+        <h1>🌟 منصة ألعاب الأطفال الحقيقية 2026 🌟</h1>
+        <p>اضغط على أي لعبة لتفتح وتعمل فوراً أمامك!</p>
     </header>
 
     <main class="container">
-        <div class="category-card" onclick="openGame('🌾 المزرعة السعيدة (طماطم، خيار، خس، جزر، ذرة، تفاح، موز، وخصال الخيول)')">
-            <div style="font-size: 2.5rem;">🌾</div>
-            <h3>المزرعة السعيدة</h3>
-            <p>زراعة الخضار والفواكه وإطعام وركوب الخيول</p>
+        <!-- ألعاب مدمجة بروابط آمنة ومباشرة -->
+        <div class="category-card" onclick="playGame('https://g.vseigru.net/7/igra-gonki-po-vertikali/index.html')">
+            <div style="font-size: 3rem;">🚗</div>
+            <h3>لعبة سباق السيارات</h3>
+            <p>انطلق بأقصى سرعة وتجاوز التحديات</p>
         </div>
 
-        <div class="category-card" onclick="openGame('💄 المكياج، الطبخ، والاستحمام، وتصميم البيوت')">
-            <div style="font-size: 2.5rem;">💄</div>
-            <h3>المكياج والطبخ والديكور</h3>
-            <p>تمكيج، استحمام، طبخ، وبناء وتصميم البيوت</p>
+        <div class="category-card" onclick="playGame('https://g.vseigru.net/13/igra-prigotovlenie-piccy/index.html')">
+            <div style="font-size: 3rem;">🍳</div>
+            <h3>لعبة الطبخ والوجبات</h3>
+            <p>اصنع أشهى الأطباق واكسب النجوم</p>
         </div>
 
-        <div class="category-card" onclick="openGame('🚗 ميكانيكي السيارات وسباق السرعة المثير')">
-            <div style="font-size: 2.5rem;">🚗</div>
-            <h3>الميكانيكي والسباقات</h3>
-            <p>إصلاح كل شيء بالسيارات وسباق السرعة</p>
+        <div class="category-card" onclick="playGame('https://g.vseigru.net/14/igra-ferma-fermer-dzon/index.html')">
+            <div style="font-size: 3rem;">🌾</div>
+            <h3>المزرعة والحيوانات</h3>
+            <p>ازرع المحاصيل واعتنِ بالحيوانات</p>
         </div>
 
-        <div class="category-card" onclick="openGame('🔤 الحروف والكلمات المتقاطعة (عربي وإنجليزية)')">
-            <div style="font-size: 2.5rem;">🔤</div>
-            <h3>الحروف والكلمات</h3>
-            <p>قراءة بلغات متعددة وكلمات متقاطعة</p>
+        <div class="category-card" onclick="playGame('https://g.vseigru.net/12/igra-pazl-dlya-detey/index.html')">
+            <div style="font-size: 3rem;">🧩</div>
+            <h3>الألغاز والحروف</h3>
+            <p>تحدي الذكاء وتطوير المهارات</p>
         </div>
     </main>
 
-    <!-- نافذة عرض الـ 70 مرحلة -->
+    <!-- نافذة تشغيل اللعبة -->
     <div id="gameModal" class="modal">
         <div class="modal-content">
-            <h2 id="modalTitle" style="color: #2c3e50; margin-top: 0; font-size: 1.3rem;">عنوان اللعبة</h2>
-            <p style="color: #555; font-size: 0.9rem;">اختر المرحلة (من 1 إلى 70) واجمع النجوم ⭐:</p>
-            <div class="levels-grid" id="levelsContainer"></div>
-            <button class="close-btn" onclick="closeModal()">إغلاق النافذة</button>
+            <iframe id="gameFrame" src=""></iframe>
+            <button class="close-btn" onclick="closeGame()">إغلاق اللعبة والعودة</button>
         </div>
     </div>
 
-    <footer>
-        جميع الحقوق محفوظة © 2026 - منصة ألعاب الأطفال الذكية
-    </footer>
-
     <script>
-        function openGame(gameName) {
-            document.getElementById('modalTitle').innerText = gameName;
-            const container = document.getElementById('levelsContainer');
-            container.innerHTML = '';
-            
-            // توليد الـ 70 مرحلة تفاعلياً
-            for (let i = 1; i <= 70; i++) {
-                const box = document.createElement('div');
-                box.className = 'level-box';
-                box.innerHTML = `م ${i}<br>⭐`;
-                box.onclick = function() {
-                    alert(`أهلاً بك يا بطل! مرحباً بك في [ ${gameName} ] - المرحلة (${i}). استمر في التحدي واكسب نجومك! 🌟`);
-                };
-                container.appendChild(box);
-            }
-            
+        function playGame(url) {
+            document.getElementById('gameFrame').src = url;
             document.getElementById('gameModal').style.display = 'flex';
         }
 
-        function closeModal() {
+        function closeGame() {
+            document.getElementById('gameFrame').src = '';
             document.getElementById('gameModal').style.display = 'none';
-        }
-
-        window.onclick = function(event) {
-            const modal = document.getElementById('gameModal');
-            if (event.target === modal) {
-                closeModal();
-            }
         }
     </script>
 
